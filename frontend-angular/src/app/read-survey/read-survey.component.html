@@ -1,0 +1,183 @@
+<!-- Manankumar Thakkar -->
+<!---  Read only sample-->
+<meta charset="ISO-8859-1">
+
+<title>Student Survey Read</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+ 
+<div style="background-color: #006633 ">
+  <img class="d-block mx-auto " src="/assets/images/gmu_logo.png" alt="George Mason Logo  " width="300" height="200">
+</div>
+  <div class="container">
+  <h2 style=" color:  : #FFCC33; margin-left: 10px; border: 5px solid #006633; border-style: solid; box-shadow: 5px 10px 8px #534593;">Student Survey Reading {{studentid}} Form</h2> 
+  <h2 style="color:  : #FFCC33; margin-left: 20px; border: 5px solid #FFCC33; border-style: solid;">Enter Your Details Below:</h2>
+  <p>
+        <em>We would appreciate hearing from you.</em>
+      </p>
+   <div class="col-md-16">
+    <form class="py-3 needs-validation" autocomplete="on" >
+      <fieldset>
+        <legend>User Information</legend>
+            <div>
+              <label for="fname">First Name<label style="color: red">*</label></label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name" value="{{studentData.fname}}" readonly>
+              </div>
+                <div class="invalid-feedback" style="width: 100%;">
+                  Please enter your First Name.
+                </div>
+                <div id="errorfName" style="color: red"></div>
+            </div>
+            <div class="mb-3">
+                <label for="lname">Last Name<label style="color: red">*</label></label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name" value="{{studentData.lname}}" readonly>
+                </div>
+                  <div class="invalid-feedback" style="width: 100%;">
+                    Please enter your Last Name.
+                  </div>
+                  <div id="errorlName" style="color: red"></div>
+              </div>
+
+              <div class="mb-3">
+                <label for="studentid">Student ID<label style="color: red" >*</label></label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="studentid" name="studentid" placeholder="G01122334"  value="{{studentData.studentid}}" readonly >
+                </div>
+                  <div class="invalid-feedback" style="width: 100%;">
+                    Please enter your Student ID i.e., G#.
+                  </div>
+                  <div id="errorStudentid" style="color: red"></div>
+              </div>
+              
+              <div class="mb-3">
+                  <label for="address">Street Address<label style="color: red">*</label></label>
+                  <input type="text" class="form-control" id="streetaddress" name="streetaddress" placeholder="XXXX Your St"  value="{{studentData.streetaddress}}" readonly>
+                  <div id="errorStreet" style="color: red"></div>
+                  <div class="invalid-feedback">
+                    Please provide a correct street address.
+                  </div>
+                </div>
+              <div class="mb-3">
+                  <label for="city">City<label style="color: red">*</label></label>
+                  <input type="text" class="form-control" id="city" name="city" placeholder="City"  value="{{studentData.city}}" readonly>
+                  <div class="invalid-feedback" style="width: 100%;">
+                    Please enter your city.
+                  </div>
+                </div>
+                <div class="mb-3">
+                    <label for="state">State<label style="color: red">*</label></label>
+                    <input type="text" class="form-control" id="state" name="state" placeholder="State"  value="{{studentData.state}}" readonly>
+                    <div class="invalid-feedback" style="width: 100%;">
+                    Please enter your state.
+                  </div>
+                </div>
+              <div class="col-md-3 mb-3">
+                    <label for="zipcode">Zipcode<label style="color: red">*</label></label>
+                    <input type="number" class="form-control" id="zipcode" name="zipcode" placeholder="00000"  value="{{studentData.zipcode}}" readonly>
+                    <div class="invalid-feedback" style="width: 100%;">
+                    Please enter zipcode.
+                  </div>
+                </div>
+                <div class="mb-3">
+                    <label for="telephone">Telephone number</label>
+                    <input type="number" class="form-control" id="telephone" name="telephone" placeholder="(XXX)-XXX-XXXX" value="{{studentData.telephone}}" readonly >
+                  </div>
+              <div class="mb-3">
+                  <label for="email">Email<label style="color: red">*</label></label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="mail@example.com" value="{{studentData.email}}" readonly>
+                  <div class="invalid-feedback">
+                    Please provide a valid email address.
+                  </div>
+                  <div id="errorEmail" style="color: red"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="surveydate">Date of Survey</label>
+                    <input type="date" class="form-control" id="surveydate" name="surveydate" placeholder="mm-dd-yyyy" value="{{studentData.surveydate}}" readonly>
+                  </div>
+                </fieldset>
+            <fieldset>
+              <legend>Feedback</legend>
+                  <h5>What was it about GMU that you liked the most?</h5>
+                  <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="students" name="likemost" [checked]="check.Students">
+                      <label class="custom-control-label" for="students">Students</label>
+                    </div>
+            
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="location" name="likemost"  [checked]="check.Location">
+                      <label class="custom-control-label" for="location">Location</label>
+                    </div>
+            
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="campus" name="likemost" value="Campus" [checked]="check.Campus" >
+                      <label class="custom-control-label" for="campus">Campus</label>
+                    </div>
+            
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="atmosphere" name="likemost" value="Atmosphere"  [checked]="check.Atmosphere">
+                      <label class="custom-control-label" for="atmosphere">Atmosphere</label>
+                    </div>
+            
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="dormrooms" name="likemost" value="Dormrooms"  [checked]="check.Dormrooms">
+                      <label class="custom-control-label" for="dormrooms">Dorm rooms</label>
+                    </div>
+            
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="sports" name="likemost" value="Sports"  [checked]="check.Sports">
+                      <label class="custom-control-label" for="sports">Sports</label>
+                    </div>
+                    <hr class="mb-4">
+        <h5>What piqued your interest in GMU the most?<label style="color: red">*</label></h5>
+
+        <div class="d-block my-3">
+          <div class="custom-control custom-radio">
+            <input id="friends" name="interestInUniversity" type="radio" class="custom-control-input" value="Friends" [ngModel]="studentData.interestInUniversity">
+            <label class="custom-control-label" for="friends">Friends</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="television" name="interestInUniversity" type="radio" class="custom-control-input" value="Television" [ngModel]="studentData.interestInUniversity">
+            <label class="custom-control-label" for="television">Television</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="internet" name="interestInUniversity" type="radio" class="custom-control-input" value="Internet" [ngModel]="studentData.interestInUniversity">
+            <label class="custom-control-label" for="internet">Internet</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="others" name="interestInUniversity" type="radio" class="custom-control-input" value="Others" [ngModel]="studentData.interestInUniversity">
+            <label class="custom-control-label" for="others">Others</label>
+          </div>
+        </div>
+
+        <hr class="mb-4">
+        <h5>Additional Comments</h5>
+        <textarea id="comments" name="comments" rows="4" cols="100" readonly>{{studentData.comments}}</textarea>
+        
+        <hr class="mb-4">
+        <h5>How likely is it that you would recommend GMU to others?</h5>
+
+        <div class="mb-3">
+          <select id="recommend" name="recommend" >
+            <option value="select"></option>
+            <option value="veryLikely">Very Likely</option>
+            <option value="likely">Likely</option>
+            <option value="unlikely">Unlikely</option>
+          </select>
+        </div>
+      </fieldset>
+      <br>
+      <div class="row ">
+        <button class="col-md-5  btn-lg btn-block w3-green" type="submit" style="margin-right: 5%" value="Submit">Submit</button>
+        <button class="col-md-5  btn-lg btn-block w3-yellow" type="reset"  style="margin-right: 10%" value="Reset">Reset</button>
+      </div>    
+ </form>
+ </div>
+ <footer>
+  <!--fixed logo-->
+  <div class="gmu_logo_fixed">
+   <a href="https://www.gmu.edu/"><img class="d-block mx-auto mb-4" src="/assets/images/gmu_logo.png" align="right" width="130"></a></div><br/>
+</footer>
+</div>

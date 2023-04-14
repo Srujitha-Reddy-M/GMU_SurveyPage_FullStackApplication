@@ -1,0 +1,6 @@
+  /*-- Custom CSS Styling for fixed logo*/
+  div.gmu_logo_fixed {
+    position: fixed;
+   bottom: 0;
+   right: 0;
+  }
